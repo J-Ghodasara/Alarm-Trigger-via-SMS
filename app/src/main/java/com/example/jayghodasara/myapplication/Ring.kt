@@ -7,6 +7,7 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Build
@@ -36,14 +37,19 @@ class Ring: BroadcastReceiver(){
         notificationchannel= NotificationChannel(channelid,desc, NotificationManager.IMPORTANCE_HIGH)
         notificationchannel.enableLights(true)
         notificationchannel.lightColor =  Color.BLUE
+        notificationchannel.setShowBadge(true)
         notificationchannel.enableVibration(false)
         notificationManager.createNotificationChannel(notificationchannel)
         builder= Notification.Builder(context,channelid)
                 .setContentTitle("Alarm Ringing")
                 .setContentText("Ringing")
+                .setColorized(true)
+                .setColor(context.resources.getColor(R.color.colorPrimary))
+                .setGroup("com.android.example.WORK_EMAIL")
                 .setSmallIcon(R.drawable.notification_icon_background)
                 .setLargeIcon(BitmapFactory.decodeResource(context.resources,R.drawable.notification_icon_background))
                 .setContentIntent(pendingIntent)
+
 
         notificationManager.notify(123,builder.build())
 

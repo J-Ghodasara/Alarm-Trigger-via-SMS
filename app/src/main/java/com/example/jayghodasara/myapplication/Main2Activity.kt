@@ -2,6 +2,7 @@ package com.example.jayghodasara.myapplication
 
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
@@ -27,7 +28,7 @@ class Main2Activity : AppCompatActivity() {
         val height = displayMetrics.heightPixels
         val width = displayMetrics.widthPixels
 
-        val deviceName = android.os.Build.MODEL
+        val deviceName = Build.MANUFACTURER+ " "+ Build.MODEL
 
 
         value.text = "Package Name:- " + packagename + "\n" +

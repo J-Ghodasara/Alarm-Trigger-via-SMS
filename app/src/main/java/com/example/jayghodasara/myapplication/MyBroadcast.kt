@@ -46,7 +46,7 @@ class MyBroadcast : BroadcastReceiver() {
                 //creating a pending intent using the intent
                 val pi = PendingIntent.getBroadcast(context, 0, i, 0)
 
-                //setting the repeating alarm that will be fired every day
+                //setting the repeating alarm that will be fired every 10 mins
                 am.setRepeating(AlarmManager.RTC, 5000, 60000 * 10, pi)
                 Toast.makeText(context, "Alarm is set", Toast.LENGTH_SHORT).show()
 
